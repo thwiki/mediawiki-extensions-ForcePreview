@@ -48,7 +48,7 @@ class ForcePreview {
 		} else {
 			if (
 				$user->isAllowed( 'forcepreviewexempt' )
-				|| !$user->getBoolOption( 'uselivepreview' )
+				|| !$services->getUserOptionsLookup()->getBoolOption( $user, 'uselivepreview' )
 				|| !in_array( $request->getVal( 'action' ), [ 'edit', 'submit' ] )
 			) {
 				return true;
